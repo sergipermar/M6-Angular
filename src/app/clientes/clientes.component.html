@@ -1,0 +1,37 @@
+<div class="form-group searcher">
+  <input type="text" class="form-control" placeholder="Buscar por nombre"/>
+</div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Primer Apellido</th>
+          <th>Segundo Apellido</th>
+          <th>Província</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Género</th>
+          <th>DNI</th>
+          <th>Correo Electrónico</th>
+          <th>Vivienda</th>
+          <th>Teléfono</th>
+          <th>Contraseña</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let product of products">
+        <tr>
+          <td>{{product.nombre}}</td>
+          <td>{{product.apellido1}}</td>
+          <td>{{product.apellido2}}</td>
+          <td>{{product.provincia}}</td>
+          <td>{{product.fnacimiento}}</td>
+          <td>{{product.genre}}</td>
+          <td>{{product.dni}}</td>
+          <td>{{product.email}}</td>
+          <td>{{product.vivienda}}</td>
+          <td>{{product.tel}}</td>
+          <td>{{product.password}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

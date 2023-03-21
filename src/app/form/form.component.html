@@ -1,0 +1,102 @@
+<div class="fondo">
+<form [formGroup]="MyNewForm" class="form" (ngSubmit)="Clic(MyNewForm.value)">
+    <div class="input-group mb-3 ">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Nombre</span>
+        </div>
+        <input type="text" class="form-control" name="nombre" formControlName="nombre" #it1 class="it1" required>
+    </div>
+
+    <div *ngIf="nombre.invalid" class="alert alert-danger text-center">El campo Nombre es obligatorio</div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Primer Apellido</span>
+        </div>
+        <input type="text" class="form-control" name="apellido1" formControlName="apellido1" #it2 class="it2" ngModel required>
+    </div>
+
+    <div *ngIf="(apellido1.value == '' || apellido1.errors?.['minlength'] || apellido1.errors?.['maxlenght'])" class="alert alert-danger text-center">El campo Primer Apellido es obligatorio</div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Segundo Apellido</span>
+        </div>
+        <input type="text" class="form-control" name="apellido2" formControlName="apellido2" #it3 class="it3" ngModel required>
+    </div>
+    <div *ngIf="nombre.invalid" class="alert alert-danger text-center">El campo Segundo Apellido es obligatorio</div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text">Província</label>
+        </div>
+        <select class="form-control" formControlName="provincia" [class.is-invalid]="provincia.invalid" [class.is-valid]="provincia.valid" #it4 class="it4" ngModel required>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Valencia">Valencia</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Sevilla">Sevilla</option>
+            <option value="Bilbao">Bilbao</option>
+        </select>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Fecha de Nacimiento</span>
+        </div>
+        <input type="date" class="form-control" name="fnacimiento" formControlName="fnacimiento" #it5 class="it5">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text">Género</label>
+        </div>
+        <select class="form-control" formControlName="genre" [class.is-invalid]="genre.invalid" [class.is-valid]="genre.valid" #it6 class="it6" ngModel required>
+            <option value="Hombre">Hombre</option>
+            <option value="Mujer">Mujer</option>
+        </select>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">DNI</span>
+        </div>
+        <input type="text" class="form-control" name="dni" formControlName="dni" #it7 class="it7">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Correo Electrónico</span>
+        </div>
+        <input type="text" class="form-control" name="email" formControlName="email"  #it8 class="it8" required email ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/"/>
+    </div>
+    <div *ngIf="email.invalid" class="alert alert-danger text-center">El campo Correo Electrónico es obligatorio</div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Vivienda</span>
+        </div>
+        <input type="text" class="form-control" name="vivienda" formControlName="vivienda" #it9 class="it9">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Teléfono</span>
+        </div>
+        <input type="number" class="form-control" name="tel" formControlName="tel"  #it10 class="it10" required minlength="9" maxlength="9">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Contraseña</span>
+        </div>
+        <input type="password" class="form-control" name="password" #it11 class="it11" formControlName="password" required minlength="6" maxlength="6">
+    </div>
+    <div *ngIf="password.invalid" class="alert alert-danger text-center">El campo Contraseña es obligatorio y debe tener al menos 6 carácteres</div>
+
+    <div class="form-check">
+        <input class="form*check-input" type="checkbox" name="adulto" formControlName="adulto">
+        <label class="form*check-label">Confirmo que tengo 18 años</label>
+    </div>
+    <button id="boton" type="submit" [disabled]="MyNewForm.invalid" (click)="addProduct()"  class="send">Enviar</button>
+</form>
+</div>

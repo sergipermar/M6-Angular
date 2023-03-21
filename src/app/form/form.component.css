@@ -1,0 +1,13 @@
+body{
+    text-align: center;
+    align-items: center;
+}
+
+.form{
+    align-items: center;
+    text-align: center;
+}
+
+.fondo{
+    background-color: grey;
+}
